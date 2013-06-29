@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>Pykit pipeline &mdash; pykit 0.1 documentation</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+<!--[if IE 7]>
+<link rel="stylesheet" href="_static/css/font-awesome-ie7.min.css">
+<![endif]-->
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+}
+</style>
+<link rel="stylesheet" href="_static/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/bootstrap-responsive.min.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '',
+            VERSION:     '0.1',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+<script type="text/javascript" src="_static/js/jquery.min.js"></script>
+<script type="text/javascript" src="_static/underscore.js"></script>
+<script type="text/javascript" src="_static/doctools.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="_static/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.show-sidebar').click(function(e) {
+       e.preventDefault();
+       if ($(".show-sidebar").html() == "Open Table Of Contents") {
+          $('.for-mobile').removeClass('hidden-phone');
+          $(".show-sidebar").html("Close Table Of Contents");
+       } else {
+          $(".show-sidebar").html("Open Table Of Contents");
+       }
+    });
+  });
+</script>
+    <link rel="top" title="pykit 0.1 documentation" href="index.html" />
+    <link rel="next" title="Pykit Runtime" href="runtime.html" />
+    <link rel="prev" title="Welcome to pykit’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top ">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html">pykit 0.1 documentation</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav pull-right">
+              
+                <li>
+                <a href="genindex.html" title="General Index" accesskey="I">index</a>
+                </li>
+                <li>
+                <a href="runtime.html" title="Pykit Runtime" accesskey="N">next</a>
+                </li>
+                <li>
+                <a href="index.html" title="Welcome to pykit’s documentation!" accesskey="P">previous</a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+
+      
+      <div class="row-fluid hidden-desktop hidden-tablet">
+      
+<div class="span3 ">
+  <a class="visible-phone btn btn-small show-sidebar" data-toggle="collapse" data-target=".for-mobile">Open Table Of Contents</a>
+  <div class="for-mobile sidebar hidden-phone">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pykit pipeline</a><ul>
+<li><a class="reference internal" href="#high-level-optimizations-and-analyses">High-level Optimizations and Analyses</a></li>
+<li><a class="reference internal" href="#lowering-and-specialization">Lowering and Specialization</a></li>
+<li><a class="reference internal" href="#codegen">Codegen</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to pykit&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="runtime.html"
+                        title="next chapter">Pykit Runtime</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/pipeline.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox">
+  <h3>Quick search</h3>
+  <form class="search form-search" action="search.html" method="get">
+      <div class="input-append">
+        <input type="text" class="search-query" name="q">
+        <input type="submit" class="btn" value="Go" />
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div>
+      </div>
+      
+
+      <!-- row -->
+      <div class="row-fluid">
+         
+<div class="span3 visible-desktop visible-tablet">
+  <div class=" sidebar hidden-phone">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pykit pipeline</a><ul>
+<li><a class="reference internal" href="#high-level-optimizations-and-analyses">High-level Optimizations and Analyses</a></li>
+<li><a class="reference internal" href="#lowering-and-specialization">Lowering and Specialization</a></li>
+<li><a class="reference internal" href="#codegen">Codegen</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to pykit&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="runtime.html"
+                        title="next chapter">Pykit Runtime</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/pipeline.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox">
+  <h3>Quick search</h3>
+  <form class="search form-search" action="search.html" method="get">
+      <div class="input-append">
+        <input type="text" class="search-query" name="q">
+        <input type="submit" class="btn" value="Go" />
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="span9">
+          <div class="document">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="pykit-pipeline">
+<h1>Pykit pipeline<a class="headerlink" href="#pykit-pipeline" title="Permalink to this headline">¶</a></h1>
+<p>The input to pykit is a typed program in the form of a Module, consisting of
+a set of functions, global variables and external symbols.</p>
+<p>The functions within the module go through successive transformations or
+stages defined by the pipeline. We can categorize stages as follows
+(similar to parakeet):</p>
+<blockquote>
+<div><ul class="simple">
+<li>High-level optimizations and analyses</li>
+<li>Lowering and scalarization</li>
+<li>Codegen</li>
+</ul>
+</div></blockquote>
+<p>Every stage in the pipeline is optional. The order is configurable. Entire
+stages can be skipped or overridden.</p>
+<div class="section" id="high-level-optimizations-and-analyses">
+<h2>High-level Optimizations and Analyses<a class="headerlink" href="#high-level-optimizations-and-analyses" title="Permalink to this headline">¶</a></h2>
+<p>Transformations:</p>
+<blockquote>
+<div><ul class="simple">
+<li>SSA/mem2reg</li>
+<li>Transform unary/binary operations on arrays to map</li>
+<li>fusion of map/reduce/scan</li>
+</ul>
+</div></blockquote>
+<p>Optimizations and analyses include:</p>
+<blockquote>
+<div><ul class="simple">
+<li>(sparse conditional) constant propagation</li>
+<li>Container vectorization (<tt class="docutils literal"><span class="pre">list_append</span> <span class="pre">-&gt;</span> <span class="pre">map</span></tt>)</li>
+<li>Purity analysis</li>
+<li>Escape analysis</li>
+<li>Partial redundancy elimination</li>
+<li>Scalar replacement</li>
+<li>Bounds check, wrap around, None check elimination</li>
+<li>Optimize cell variables with static binding</li>
+<li>Loop fusion (temporary elimination)</li>
+<li>Inlining</li>
+<li>Exception analysis</li>
+</ul>
+</div></blockquote>
+<p>We need to perform these analyses on high-level code, since subsequent
+lowering transformations will reduce or preclude the effectiveness.</p>
+<p>For example optimizations pykit should do, see <a class="reference internal" href="opt_examples.html#optimizations"><em>Example Optimizations</em></a>.</p>
+</div>
+<div class="section" id="lowering-and-specialization">
+<h2>Lowering and Specialization<a class="headerlink" href="#lowering-and-specialization" title="Permalink to this headline">¶</a></h2>
+<p>These stages specialize to a type representation and a runtime. Default
+stages lower to a provided pykit <a class="reference internal" href="runtime.html#runtime"><em>Pykit Runtime</em></a>.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Scalarization <tt class="docutils literal"><span class="pre">map</span> <span class="pre">-&gt;</span> <span class="pre">for</span></tt></p>
+</li>
+<li><p class="first">Expand sum type operations</p>
+</li>
+<li><p class="first">Data and object allocation (based on escape analysis)</p>
+</li>
+<li><p class="first">Lower container operations</p>
+</li>
+<li><p class="first">Lower Thread API into runtime calls</p>
+</li>
+<li><p class="first">Lower cell variable allocation and storage/loading</p>
+</li>
+<li><p class="first">Lower type conversion...</p>
+<blockquote>
+<div><ul class="simple">
+<li>Internal representation</li>
+<li>CPython C API</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Lower object operations</p>
+<blockquote>
+<div><ul class="simple">
+<li>CPython C API</li>
+<li>Some user pass</li>
+<li>Error</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Lower virtual method calls / virtual attribute access</p>
+<blockquote>
+<div><ul class="simple">
+<li>Actual vtable lookup should be deferred to a user provided pass</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Refcounting or GC pass</p>
+</li>
+<li><p class="first">Lower exception handling code</p>
+<blockquote>
+<div><ul class="simple">
+<li>zero cost</li>
+<li>setjmp/longjump</li>
+<li>error return codes</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="codegen">
+<h2>Codegen<a class="headerlink" href="#codegen" title="Permalink to this headline">¶</a></h2>
+<p>The code is in a low-level format by now, and can be easily used to generate
+code from. We are left with:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Scalars operations (int, float, pointer, function)</li>
+<li>Aggregate accesses (struct, union)</li>
+<li>Scalar conversions and pointer casts</li>
+<li>Memory operations (load, store)</li>
+<li>Control flow (branch, conditional branch, return, exceptions)</li>
+<li>Function calls</li>
+<li>phi</li>
+<li>Constants</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row-fluid">
+<div class="related navbar ">
+  <div class="navbar-inner">
+    <ul class="nav pull-right">
+      
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="runtime.html" title="Pykit Runtime" >next</a></li>
+        <li><a href="index.html" title="Welcome to pykit’s documentation!" >previous</a></li>
+        <li><a href="index.html">pykit 0.1 documentation</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer>
+          &copy; Copyright 2013, Continuum Analytics.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

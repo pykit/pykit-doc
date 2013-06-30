@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>Welcome to pykit’s documentation! &mdash; pykit 0.1 documentation</title>
+    <title>Pykit Types &mdash; pykit 0.1 documentation</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -59,8 +59,9 @@
     });
   });
 </script>
-    <link rel="top" title="pykit 0.1 documentation" href="#" />
-    <link rel="next" title="Pykit Types" href="types.html" /> 
+    <link rel="top" title="pykit 0.1 documentation" href="index.html" />
+    <link rel="next" title="Pykit IR" href="ir.html" />
+    <link rel="prev" title="Welcome to pykit’s documentation!" href="index.html" /> 
   </head>
   <body>
     <div class="navbar navbar-fixed-top ">
@@ -71,7 +72,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">pykit 0.1 documentation</a>
+          <a class="brand" href="index.html">pykit 0.1 documentation</a>
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
               
@@ -79,7 +80,10 @@
                 <a href="genindex.html" title="General Index" accesskey="I">index</a>
                 </li>
                 <li>
-                <a href="types.html" title="Pykit Types" accesskey="N">next</a>
+                <a href="ir.html" title="Pykit IR" accesskey="N">next</a>
+                </li>
+                <li>
+                <a href="index.html" title="Welcome to pykit’s documentation!" accesskey="P">previous</a>
                 </li>
               
             </ul>
@@ -99,22 +103,15 @@
 <div class="span3 ">
   <a class="visible-phone btn btn-small show-sidebar" data-toggle="collapse" data-target=".for-mobile">Open Table Of Contents</a>
   <div class="for-mobile sidebar hidden-phone">
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Welcome to pykit&#8217;s documentation!</a><ul>
-<li><a class="reference internal" href="#contents">Contents:</a><ul>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to pykit&#8217;s documentation!</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="types.html"
-                        title="next chapter">Pykit Types</a></p>
+  <p class="topless"><a href="ir.html"
+                        title="next chapter">Pykit IR</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/index.txt"
+    <li><a href="_sources/types.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox">
@@ -141,22 +138,15 @@
          
 <div class="span3 visible-desktop visible-tablet">
   <div class=" sidebar hidden-phone">
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Welcome to pykit&#8217;s documentation!</a><ul>
-<li><a class="reference internal" href="#contents">Contents:</a><ul>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to pykit&#8217;s documentation!</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="types.html"
-                        title="next chapter">Pykit Types</a></p>
+  <p class="topless"><a href="ir.html"
+                        title="next chapter">Pykit IR</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/index.txt"
+    <li><a href="_sources/types.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox">
@@ -183,29 +173,40 @@
               <div class="bodywrapper">
                 <div class="body">
                   
-  <div class="section" id="welcome-to-pykit-s-documentation">
-<h1>Welcome to pykit&#8217;s documentation!<a class="headerlink" href="#welcome-to-pykit-s-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="contents">
-<h2>Contents:<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="types.html">Pykit Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ir.html">Pykit IR</a><ul class="simple">
+  <div class="section" id="pykit-types">
+<h1>Pykit Types<a class="headerlink" href="#pykit-types" title="Permalink to this headline">¶</a></h1>
+<p>Pykit supports the following types:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Containers: tuples, lists, dicts, sets, N-dimensional arrays</li>
+<li>Complex numbers</li>
+<li>Objects (a Python object)</li>
+<li>Functions and Partial functions</li>
+<li>Integral and real numbers</li>
+<li>Structs and Unions</li>
+<li>Pointers</li>
+<li>String and Unicode</li>
+<li>Char and Unicode codepoints</li>
+<li>Sum type (e.g. Int | Float)</li>
+<li>Cell types (for closures)</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pipeline.html">Pykit pipeline</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="runtime.html">Pykit Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opt_examples.html">Example Optimizations</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul class="simple">
-</ul>
-</li>
-</ul>
+</div></blockquote>
+<p>Additionally, pykit supports the notion of a Typedef, which allows a type to be
+declared and used now, but resolved later:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Int</span> <span class="o">=</span> <span class="n">Typedef</span><span class="p">(</span><span class="s">&quot;Int&quot;</span><span class="p">,</span> <span class="n">Int32</span><span class="p">)</span>
+</pre></div>
 </div>
-</div>
+<p>Above we specify that an <tt class="docutils literal"><span class="pre">Int</span></tt> type is <em>like</em> an <tt class="docutils literal"><span class="pre">Int32</span></tt>, but we don&#8217;t
+fix this representation. This allows the IR to retain portability to a later
+stage (or all the way to e.g. C code). It also allows for the creation of a
+unique type that external code keeps track of, e.g.</p>
+<blockquote>
+<div><p>MyExtensionObject = Typedef(&#8220;MyExtensionObject&#8221;, Object)</p>
+<p>obj = new_object(MyExtensionObject)
+call_virtual(obj, &#8220;mymethod&#8221;, [Constant(10, Int)])</p>
+</div></blockquote>
+<p>A later pass from the user can then determine that <tt class="docutils literal"><span class="pre">obj</span></tt> is of type
+<tt class="docutils literal"><span class="pre">MyExtensionObject</span></tt>, and resolve a virtual method call accordingly.</p>
 </div>
 
 
@@ -225,8 +226,9 @@
     <ul class="nav pull-right">
       
         <li><a href="genindex.html" title="General Index" >index</a></li>
-        <li><a href="types.html" title="Pykit Types" >next</a></li>
-        <li><a href="#">pykit 0.1 documentation</a></li> 
+        <li><a href="ir.html" title="Pykit IR" >next</a></li>
+        <li><a href="index.html" title="Welcome to pykit’s documentation!" >previous</a></li>
+        <li><a href="index.html">pykit 0.1 documentation</a></li> 
       
     </ul>
   </div>

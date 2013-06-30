@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>Pykit IR &mdash; pykit 0.1 documentation</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+<!--[if IE 7]>
+<link rel="stylesheet" href="_static/css/font-awesome-ie7.min.css">
+<![endif]-->
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+}
+</style>
+<link rel="stylesheet" href="_static/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/bootstrap-responsive.min.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '',
+            VERSION:     '0.1',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+<script type="text/javascript" src="_static/js/jquery.min.js"></script>
+<script type="text/javascript" src="_static/underscore.js"></script>
+<script type="text/javascript" src="_static/doctools.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="_static/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.show-sidebar').click(function(e) {
+       e.preventDefault();
+       if ($(".show-sidebar").html() == "Open Table Of Contents") {
+          $('.for-mobile').removeClass('hidden-phone');
+          $(".show-sidebar").html("Close Table Of Contents");
+       } else {
+          $(".show-sidebar").html("Open Table Of Contents");
+       }
+    });
+  });
+</script>
+    <link rel="top" title="pykit 0.1 documentation" href="index.html" />
+    <link rel="next" title="Pykit pipeline" href="pipeline.html" />
+    <link rel="prev" title="Pykit Types" href="types.html" /> 
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top ">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html">pykit 0.1 documentation</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav pull-right">
+              
+                <li>
+                <a href="genindex.html" title="General Index" accesskey="I">index</a>
+                </li>
+                <li>
+                <a href="pipeline.html" title="Pykit pipeline" accesskey="N">next</a>
+                </li>
+                <li>
+                <a href="types.html" title="Pykit Types" accesskey="P">previous</a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+
+      
+      <div class="row-fluid hidden-desktop hidden-tablet">
+      
+<div class="span3 ">
+  <a class="visible-phone btn btn-small show-sidebar" data-toggle="collapse" data-target=".for-mobile">Open Table Of Contents</a>
+  <div class="for-mobile sidebar hidden-phone">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pykit IR</a><ul>
+<li><a class="reference internal" href="#control-flow">Control Flow</a></li>
+<li><a class="reference internal" href="#primitives">Primitives</a></li>
+<li><a class="reference internal" href="#containers">Containers</a></li>
+<li><a class="reference internal" href="#indexing-and-slicing">Indexing and Slicing</a></li>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#conversion">Conversion</a></li>
+<li><a class="reference internal" href="#iterators">Iterators</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#closures">Closures</a></li>
+<li><a class="reference internal" href="#pointers">Pointers</a></li>
+<li><a class="reference internal" href="#threads">Threads</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="types.html"
+                        title="previous chapter">Pykit Types</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pipeline.html"
+                        title="next chapter">Pykit pipeline</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/ir.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox">
+  <h3>Quick search</h3>
+  <form class="search form-search" action="search.html" method="get">
+      <div class="input-append">
+        <input type="text" class="search-query" name="q">
+        <input type="submit" class="btn" value="Go" />
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div>
+      </div>
+      
+
+      <!-- row -->
+      <div class="row-fluid">
+         
+<div class="span3 visible-desktop visible-tablet">
+  <div class=" sidebar hidden-phone">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pykit IR</a><ul>
+<li><a class="reference internal" href="#control-flow">Control Flow</a></li>
+<li><a class="reference internal" href="#primitives">Primitives</a></li>
+<li><a class="reference internal" href="#containers">Containers</a></li>
+<li><a class="reference internal" href="#indexing-and-slicing">Indexing and Slicing</a></li>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#conversion">Conversion</a></li>
+<li><a class="reference internal" href="#iterators">Iterators</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#closures">Closures</a></li>
+<li><a class="reference internal" href="#pointers">Pointers</a></li>
+<li><a class="reference internal" href="#threads">Threads</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="types.html"
+                        title="previous chapter">Pykit Types</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pipeline.html"
+                        title="next chapter">Pykit pipeline</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/ir.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox">
+  <h3>Quick search</h3>
+  <form class="search form-search" action="search.html" method="get">
+      <div class="input-append">
+        <input type="text" class="search-query" name="q">
+        <input type="submit" class="btn" value="Go" />
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="span9">
+          <div class="document">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="pykit-ir">
+<h1>Pykit IR<a class="headerlink" href="#pykit-ir" title="Permalink to this headline">¶</a></h1>
+<p>The pykit IR is a linear N-address code delineated through basic blocks,
+analogously to LLVM IR. It defines a set of opcodes, which specify what
+an operation does. Opcodes range from high-level such as container operations,
+to low-level operations such as pointer stores. Each operation has a type,
+and implicit coercions do not exists. Instead coercions need explicit
+conversions.</p>
+<p>Similarly to LLVM pykit comes with an <tt class="docutils literal"><span class="pre">alloca</span></tt> instruction that allocates
+an object on the stack, such as a scalar or a small array. The resulting
+pointer can be loaded and stored to.</p>
+<p>Pykit uses SSA, and can promote stack allocated scalars to virtual registers
+and remove the load and store operations, allowing better optimizations
+since values propagate directly to their use sites.</p>
+<p>All opcodes are defined in <tt class="docutils literal"><span class="pre">pykit.ir.ops</span></tt>. Below follows a summary and
+rationale.</p>
+<div class="section" id="control-flow">
+<h2>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h2>
+<p>Control flow is supported through through <tt class="docutils literal"><span class="pre">jump</span></tt>, <tt class="docutils literal"><span class="pre">cbranch</span></tt> and <tt class="docutils literal"><span class="pre">ret</span></tt>.
+Additionally, <tt class="docutils literal"><span class="pre">phi</span></tt> merges different incoming values or definitions from
+predecessor basic blocks.</p>
+<p>Exceptions are supported through <tt class="docutils literal"><span class="pre">exc_setup</span></tt>, <tt class="docutils literal"><span class="pre">exc_catch</span></tt> and
+<tt class="docutils literal"><span class="pre">exc_throw</span></tt>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">exc_setup</span></tt>: marks the exception handlers for the basic block</li>
+<li><tt class="docutils literal"><span class="pre">exc_catch</span></tt>: specifies which exceptions this basic block can handle</li>
+<li><tt class="docutils literal"><span class="pre">exc_throw</span></tt>: raises an exception</li>
+</ul>
+</div></blockquote>
+<p>The implementation is pluggable (costful/zero-cost, etc), and these opcodes
+are entirely optional. More on this can be read here: <a class="reference internal" href="pipeline.html#lowering"><em>Lowering and Specialization</em></a>.</p>
+</div>
+<div class="section" id="primitives">
+<h2>Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h2>
+<p>High-level primitives <tt class="docutils literal"><span class="pre">map</span></tt>, <tt class="docutils literal"><span class="pre">reduce</span></tt>, <tt class="docutils literal"><span class="pre">filter</span></tt>, <tt class="docutils literal"><span class="pre">scan</span></tt>, <tt class="docutils literal"><span class="pre">zip</span></tt>,
+<tt class="docutils literal"><span class="pre">allpairs</span></tt>, <tt class="docutils literal"><span class="pre">flatten</span></tt> are provided for arrays and lists. This allows
+fusion before scalarization.</p>
+</div>
+<div class="section" id="containers">
+<h2>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
+<p>Lists, dicts, tuples and sets are supported. Basic operations are provided
+in the IR, and additional operations are deferred to calls to a runtime.
+The opcodes provided are there only since they expose hints for optimizations,
+see <a class="reference internal" href="opt_examples.html#container-opt"><em>Containers</em></a>.</p>
+</div>
+<div class="section" id="indexing-and-slicing">
+<h2>Indexing and Slicing<a class="headerlink" href="#indexing-and-slicing" title="Permalink to this headline">¶</a></h2>
+<p>Indexing is supported for containers (including arrays) and pointers.
+Slicing is supported for tuples, lists and arrays. Newaxis is supported
+for arrays.</p>
+</div>
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<p>Attributes are supported through <tt class="docutils literal"><span class="pre">getfield</span></tt> and <tt class="docutils literal"><span class="pre">setfield</span></tt> for objects
+and structs.</p>
+</div>
+<div class="section" id="conversion">
+<h2>Conversion<a class="headerlink" href="#conversion" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">convert</span></tt> opcode converts its argument to the destination type.</p>
+</div>
+<div class="section" id="iterators">
+<h2>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h2>
+<p>Supported through <tt class="docutils literal"><span class="pre">iter</span></tt> and <tt class="docutils literal"><span class="pre">next</span></tt> on arrays, flattened arrays, lists,
+sets, dict keys, dict values and dict items.</p>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>Pykit considers external and defined functions to be functions. These can
+be called through the <tt class="docutils literal"><span class="pre">call</span></tt> opcode. Additionally, pykit supports partial
+functions, which are also functions. Only these functions may be passed to
+<tt class="docutils literal"><span class="pre">map</span></tt> etc, or used in <tt class="docutils literal"><span class="pre">phi</span></tt> instructions (if the signatures are compatible).</p>
+<p>Math is supported through <tt class="docutils literal"><span class="pre">call_math</span></tt>, since the functions have polymorphic
+signatures (real or complex). Math functions take a constant function name as
+first argument. These are defined in <tt class="docutils literal"><span class="pre">ops.py</span></tt>.</p>
+<p>Note that pykit does not support keyword arguments. A front-end can however
+handle this statically if possible, or otherwise rewrite the signature to
+take an explicit dictionary as argument if so desired (and star arguments
+through an explicit tuple).</p>
+</div>
+<div class="section" id="closures">
+<h2>Closures<a class="headerlink" href="#closures" title="Permalink to this headline">¶</a></h2>
+<p>Pykit assumes closure conversion and lambda lifting has taken place. For
+dynamic binding of call variables it provides cell objects through
+<tt class="docutils literal"><span class="pre">make_cell</span></tt>, <tt class="docutils literal"><span class="pre">load_cell`</span> <span class="pre">and</span> <span class="pre">``store_cell</span></tt>.</p>
+</div>
+<div class="section" id="pointers">
+<h2>Pointers<a class="headerlink" href="#pointers" title="Permalink to this headline">¶</a></h2>
+<p>Supported pointer operations are <tt class="docutils literal"><span class="pre">add</span></tt>, <tt class="docutils literal"><span class="pre">ptrload</span></tt> and <tt class="docutils literal"><span class="pre">ptrstore</span></tt>.
+<tt class="docutils literal"><span class="pre">ptrcast</span></tt> casts the pointer to another pointer (this is distinguished from
+a data conversion).</p>
+</div>
+<div class="section" id="threads">
+<h2>Threads<a class="headerlink" href="#threads" title="Permalink to this headline">¶</a></h2>
+<p>Supported are thread pools and individual threads.</p>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row-fluid">
+<div class="related navbar ">
+  <div class="navbar-inner">
+    <ul class="nav pull-right">
+      
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="pipeline.html" title="Pykit pipeline" >next</a></li>
+        <li><a href="types.html" title="Pykit Types" >previous</a></li>
+        <li><a href="index.html">pykit 0.1 documentation</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer>
+          &copy; Copyright 2013, Continuum Analytics.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

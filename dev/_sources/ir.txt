@@ -39,9 +39,11 @@ are entirely optional. More on this can be read here: :ref:`lowering`.
 Primitives
 ----------
 
-High-level primitives ``map``, ``reduce``, ``filter``, ``scan``, ``zip``,
-``allpairs``, ``flatten`` are provided for arrays and lists. This allows
-fusion before scalarization.
+Like parakeet and copperhead, pykit has high-level data parallel operators,
+such as ``map``, ``reduce``, ``filter``, ``scan``, ``zip``, and ``allpairs``
+are provided for arrays and lists. This allows
+optimizations such as fusion and parallelization before scalarization takes
+place.
 
 Containers
 ----------

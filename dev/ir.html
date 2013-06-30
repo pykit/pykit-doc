@@ -244,9 +244,11 @@ are entirely optional. More on this can be read here: <a class="reference intern
 </div>
 <div class="section" id="primitives">
 <h2>Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h2>
-<p>High-level primitives <tt class="docutils literal"><span class="pre">map</span></tt>, <tt class="docutils literal"><span class="pre">reduce</span></tt>, <tt class="docutils literal"><span class="pre">filter</span></tt>, <tt class="docutils literal"><span class="pre">scan</span></tt>, <tt class="docutils literal"><span class="pre">zip</span></tt>,
-<tt class="docutils literal"><span class="pre">allpairs</span></tt>, <tt class="docutils literal"><span class="pre">flatten</span></tt> are provided for arrays and lists. This allows
-fusion before scalarization.</p>
+<p>Like parakeet and copperhead, pykit has high-level data parallel operators,
+such as <tt class="docutils literal"><span class="pre">map</span></tt>, <tt class="docutils literal"><span class="pre">reduce</span></tt>, <tt class="docutils literal"><span class="pre">filter</span></tt>, <tt class="docutils literal"><span class="pre">scan</span></tt>, <tt class="docutils literal"><span class="pre">zip</span></tt>, and <tt class="docutils literal"><span class="pre">allpairs</span></tt>
+are provided for arrays and lists. This allows
+optimizations such as fusion and parallelization before scalarization takes
+place.</p>
 </div>
 <div class="section" id="containers">
 <h2>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
